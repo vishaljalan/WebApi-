@@ -58,6 +58,8 @@ builder.Services.AddScoped<IAuth, AuthRepository>();
 builder.Services.AddMediatR(typeof(MovieRepository).Assembly);
 builder.Services.AddMediatR(typeof(AuthRepository).Assembly);
 
+builder.Services.AddCors(options => { options.AddPolicy("AllowAllOrigins", builder => { builder.WithOrigins("*").AllowAnyHeader().AllowAnyMethod(); }); });
+
 
 builder.Services.AddHttpLogging(logging =>
 {
@@ -92,6 +94,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowAllOrigins");
 
 app.UseAuthentication();
 app.UseAuthorization();

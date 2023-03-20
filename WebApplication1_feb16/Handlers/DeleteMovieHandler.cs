@@ -7,7 +7,9 @@ namespace WebApplication1_feb16.Handlers
     public class DeleteMovieHandler : IRequestHandler<DeleteMovieCommand, string>
     {
         private readonly IMovie _movie;
-        public DeleteMovieHandler(IMovie movie) { }
+        public DeleteMovieHandler(IMovie movie) {
+            _movie = movie;
+        }
 
         public Task<string> Handle(DeleteMovieCommand request, CancellationToken cancellationToken)
         {

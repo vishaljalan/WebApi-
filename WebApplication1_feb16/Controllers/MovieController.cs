@@ -4,9 +4,11 @@ using WebApplication1_feb16.Queries;
 using WebApplication1_feb16.Models;
 using WebApplication1_feb16.Commands;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 
 namespace WebApplication1_feb16.Controllers
 {
+    [EnableCors("AllowAllOrigins")]
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
@@ -36,6 +38,7 @@ namespace WebApplication1_feb16.Controllers
         }
 
         [HttpPost]
+        [Route("/add")]
         public async Task<IActionResult> CreateNew([FromBody] Tmovie tmovie)
         {
             await _mediator.Send(new AddMovieCommand(tmovie));

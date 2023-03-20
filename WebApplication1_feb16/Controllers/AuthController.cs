@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApplication1_feb16.Commands;
@@ -6,6 +7,7 @@ using WebApplication1_feb16.Models;
 
 namespace WebApplication1_feb16.Controllers
 {
+    [EnableCors("AllowAllOrigins")]
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase

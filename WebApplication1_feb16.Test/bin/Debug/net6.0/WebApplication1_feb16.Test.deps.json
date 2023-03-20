@@ -10,6 +10,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.13",
           "Microsoft.NET.Test.Sdk": "17.3.2",
+          "Moq": "4.18.1",
           "Moq.EntityFrameworkCore": "7.0.0.2",
           "WebApplication1_feb16": "1.0.0",
           "coverlet.collector": "3.1.2",
